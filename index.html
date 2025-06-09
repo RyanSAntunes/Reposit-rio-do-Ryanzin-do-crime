@@ -6,3 +6,39 @@
 <p> Ola mundo!</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mostrar Imagem ao Clicar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #imagem {
+      display: none;
+      margin-top: 20px;
+      max-width: 90%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bem-vindo ao meu site</h1>
+  <a href="#" onclick="mostrarImagem()">Clique aqui para ver a imagem</a>
+
+  <div>
+    <img id="imagem" src="https://images.app.goo.gl/CRLoK" alt="Imagem exemplo">
+  </div>
+
+  <script>
+    function mostrarImagem() {
+      const imagem = document.getElementById("imagem");
+      imagem.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
