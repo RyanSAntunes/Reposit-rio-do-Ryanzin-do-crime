@@ -2,24 +2,35 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Imagem na Página</title>
+  <title>Mostrar Imagem ao Clicar</title>
   <style>
     body {
-      text-align: center;
       font-family: Arial, sans-serif;
+      text-align: center;
       margin-top: 50px;
     }
-
-    img {
+    #imagem {
+      display: none;
+      margin-top: 20px;
       max-width: 90%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
-  <h1>Minha Imagem</h1>
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ59ybtOARluOEfyRENFX72WkQY--HqhppBhg&usqp=CAU" alt="Imagem Escolhida">
+
+  <h1>Bem-vindo ao meu site</h1>
+  <a href="#" onclick="mostrarImagem()">Clique aqui para ver a imagem</a>
+
+  <div>
+    <img id="imagem" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ59ybtOARluOEfyRENFX72WkQY--HqhppBhg&usqp=CAU" alt="Imagem exemplo">
+  </div>
+
+  <script>
+    function mostrarImagem() {
+      const imagem = document.getElementById("imagem");
+      imagem.style.display = "block";
+    }
+  </script>
+
 </body>
 </html>
