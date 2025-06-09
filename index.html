@@ -2,35 +2,49 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Mostrar Imagem ao Clicar</title>
+  <title>Abrir uma Foto</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 50px;
     }
-    #imagem {
-      display: none;
-      margin-top: 20px;
+
+    input[type="file"] {
+      margin-bottom: 20px;
+    }
+
+    img {
       max-width: 90%;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-
-  <h1>Bem-vindo ao meu site</h1>
-  <a href="#" onclick="mostrarImagem()">Clique aqui para ver a imagem</a>
-
-  <div>
-    <img id="imagem" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ59ybtOARluOEfyRENFX72WkQY--HqhppBhg&usqp=CAU" alt="Imagem exemplo">
-  </div>
-
+  <h1>Abrir uma Foto</h1>
+  <input type="file" accept="image/*" onchange="mostrarImagem(event)">
+  <br>
+  <img id="imagem" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ59ybtOARluOEfyRENFX72WkQY--HqhppBhg&usqp=CAU" alt="Sua imagem aparecerá aqui" style="display: none;">
+  
   <script>
-    function mostrarImagem() {
-      const imagem = document.getElementById("imagem");
-      imagem.style.display = "block";
+    function mostrarImagem(event) {
+      const imagem = document.getElementById('imagem');
+      const arquivo = event.target.files[0];
+
+      if (arquivo) {
+        const leitor = new FileReader();
+
+        leitor.onload = function(e) {
+          imagem.src = e.target.result;
+          imagem.style.display = 'block';
+        }
+
+        leitor.readAsDataURL(arquivo);
+      }
     }
   </script>
-
 </body>
 </html>
